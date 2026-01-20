@@ -13,5 +13,18 @@ const app = express()
 const { infoCursos } = require('./datos/cursos')
 
 
+// Routing con Express
+// Función de Express para definir una ruta que maneje solicitudes HTTP GET.
+app.get('/', (req, res) => {
+    res.send('Mi primer servidor con Node')
+})
+
+// Establece un puerto en que el servidor escucha las solicitudes entrantes.
+const PUERTO = process.env.PORT || 3000;
+
+// Esta línea inicia el servidor y le indica en que puerto debe escuchar las solicitudes.
+app.listen(PUERTO, () => {
+    console.log(`El servidor está escuchando el el puerto ${PUERTO}`)
+})
 
 
