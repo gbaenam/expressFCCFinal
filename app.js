@@ -16,7 +16,19 @@ const { infoCursos } = require('./datos/cursos')
 // Routing con Express
 // Función de Express para definir una ruta que maneje solicitudes HTTP GET.
 app.get('/', (req, res) => {
-    res.send('Mi primer servidor con Node')
+    res.send('Mi primer servidor con Express')
+})
+
+app.get('/api/cursos', (req, res) => {
+    res.send(JSON.stringify(infoCursos))
+})
+
+app.get('/api/cursos/programacion', (req, res) => {
+    res.send(JSON.stringify(infoCursos.programacion))
+})
+
+app.get('/api/cursos/matematicas', (req, res) => {
+    res.send(JSON.stringify(infoCursos.matematicas))
 })
 
 // Establece un puerto en que el servidor escucha las solicitudes entrantes.
