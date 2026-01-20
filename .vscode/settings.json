@@ -1,0 +1,11 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#202745",
+        "titleBar.activeBackground": "#2D3761",
+        "titleBar.activeForeground": "#F9FAFC"
+    },
+    "cSpell.words": [
+        "basico",
+        "desestructuración"
+    ]
+}

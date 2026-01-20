@@ -1,0 +1,17 @@
+
+# Dependencias
+node_modules/
+
+# Configuración personal / Secretos
+.env
+*.env
+
+# Carpetas de compilación
+dist/
+build/
+
+# Logs
+*.log
+
+
+
