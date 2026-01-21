@@ -12,9 +12,16 @@ const { infoCursos } = require("./datos/cursos")
 
 // Routers
 // Router programación
-app.use('/api/cursos/programacion', routerProgramacion)
+// app.use('/api/cursos/programacion', routerProgramacion)
+
+
 // Router matematicas.
+// Importando el Router de Matemáticas.
+const { routerMatematicas } = require('./routers/matematicas')
+
+// Montaje del Middleware de Enrutamiento de matemáticas.
 app.use('/api/cursos/matematicas', routerMatematicas)
+
 
 
 // Routing con Express
@@ -32,5 +39,5 @@ const PUERTO = process.env.PORT || 3000
 
 // Esta línea inicia el servidor y le indica en que puerto debe escuchar las solicitudes.
 app.listen(PUERTO, () => {
-    console.log(`El servidor está escuchando el el puerto ${PUERTO}`)
+    console.log(`El servidor está escuchando en el puerto ${PUERTO}`)
 })

@@ -1,6 +1,7 @@
 
 const express = require('express')
 
+// Importación de los cursos de matemáticas.
 const { matematicas } = require('../datos/cursos').infoCursos
 
 const routerMatematicas = express.Router()
@@ -32,6 +33,14 @@ routerMatematicas.get("/:tema/:nivel", (req, res) => {
     }
     res.send(JSON.stringify(resultados))
 })
+
+
+// Exportación del Router de Matemáticas.
+module.exports = {
+    routerMatematicas
+}
+
+
 
 
 
