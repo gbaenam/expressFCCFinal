@@ -32,7 +32,7 @@ app.use('/api/cursos/matematicas', routerMatematicas)
 /*********************************************************************/
 
 // Routing con Express
-// Función de Express para definir una ruta que maneje solicitudes HTTP GET.
+// Manejo de solicitudes HTTP GET.
 app.get("/", (req, res) => {
     res.send("Mi primer servidor con Express")
 })
@@ -48,3 +48,12 @@ const PUERTO = process.env.PORT || 3000
 app.listen(PUERTO, () => {
     console.log(`El servidor está escuchando en el puerto ${PUERTO}`)
 })
+
+
+
+
+
+
+
+
+

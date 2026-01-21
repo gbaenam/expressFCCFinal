@@ -23,7 +23,6 @@ routerMatematicas.get("/:tema", (req, res) => {
 
 // Filtrando con dos parámetros.
 routerMatematicas.get("/:tema/:nivel", (req, res) => {
-    // console.log(req.params)
     const tema = req.params.tema
     const nivel = req.params.nivel
     const resultados = matematicas.filter(curso => curso.tema === tema && curso.nivel === nivel)
@@ -39,6 +38,11 @@ routerMatematicas.get("/:tema/:nivel", (req, res) => {
 module.exports = {
     routerMatematicas
 }
+
+
+
+
+
 
 
 

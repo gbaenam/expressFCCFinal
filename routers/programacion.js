@@ -12,7 +12,6 @@ routerProgramacion.get("/", (req, res) => {
 
 // Parámetros de ruta cursos programación
 routerProgramacion.get("/:lenguaje", (req, res) => {
-    // console.log(req.params)
     const lenguaje = req.params.lenguaje
     const resultados = programacion.filter(curso => curso.lenguaje === lenguaje)
 
@@ -30,7 +29,6 @@ routerProgramacion.get("/:lenguaje", (req, res) => {
 
 // Filtrando con dos parámetros.
 routerProgramacion.get("/:lenguaje/:nivel", (req, res) => {
-    // console.log(req.params)
     const lenguaje = req.params.lenguaje
     const nivel = req.params.nivel
     const resultados = programacion.filter(curso => curso.lenguaje === lenguaje && curso.nivel === nivel)
@@ -46,4 +44,13 @@ routerProgramacion.get("/:lenguaje/:nivel", (req, res) => {
 module.exports = {
     routerProgramacion
 }
+
+
+
+
+
+
+
+
+
 
