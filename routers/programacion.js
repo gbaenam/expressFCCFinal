@@ -1,18 +1,20 @@
 
 const express = require('express')
 
+const { programacion } = require('/../datos/cursos').infoCursos
+
 const routerProgramacion = express.Router()
 
 
 routerProgramacion.get("/", (req, res) => {
-    res.send(JSON.stringify(infoCursos.programacion));
+    res.send(JSON.stringify(programacion));
 })
 
 // Parámetros de ruta cursos programación
 routerProgramacion.get("/:lenguaje", (req, res) => {
     // console.log(req.params)
     const lenguaje = req.params.lenguaje
-    const resultados = infoCursos.programacion.filter(curso => curso.lenguaje === lenguaje)
+    const resultados = programacion.filter(curso => curso.lenguaje === lenguaje)
 
     if (resultados.length === 0) {
         return res.status(404).send(`No encontraron cursos de ${lenguaje}`)
@@ -31,7 +33,7 @@ routerProgramacion.get("/:lenguaje/:nivel", (req, res) => {
     // console.log(req.params)
     const lenguaje = req.params.lenguaje
     const nivel = req.params.nivel
-    const resultados = infoCursos.programacion.filter(curso => curso.lenguaje === lenguaje && curso.nivel === nivel)
+    const resultados = programacion.filter(curso => curso.lenguaje === lenguaje && curso.nivel === nivel)
 
     if (resultados.length === 0) {
         return res.status(404).send(`No encontraron cursos de ${lenguaje} de nivel ${nivel}`)
