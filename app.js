@@ -10,6 +10,14 @@ const app = express()
 
 const { infoCursos } = require("./datos/cursos")
 
+// Routers
+const routerProgramacion = express.Router()
+app.use('/api/cursos/programacion', routerProgramacion)
+
+const routerMatematicas = express.Router()
+app.use('/api/cursos/matematicas', routerMatematicas)
+
+
 // Routing con Express
 // Función de Express para definir una ruta que maneje solicitudes HTTP GET.
 app.get("/", (req, res) => {
@@ -21,12 +29,12 @@ app.get("/api/cursos", (req, res) => {
 })
 
 // Programación
-app.get("/api/cursos/programacion", (req, res) => {
+routerProgramacion.get("/", (req, res) => {
     res.send(JSON.stringify(infoCursos.programacion));
 })
 
 // Parámetros de ruta cursos programación
-app.get("/api/cursos/programacion/:lenguaje", (req, res) => {
+routerProgramacion.get("/:lenguaje", (req, res) => {
     // console.log(req.params)
     const lenguaje = req.params.lenguaje
     const resultados = infoCursos.programacion.filter(curso => curso.lenguaje === lenguaje)
@@ -44,7 +52,7 @@ app.get("/api/cursos/programacion/:lenguaje", (req, res) => {
 })
 
 // Filtrando con dos parámetros.
-app.get("/api/cursos/programacion/:lenguaje/:nivel", (req, res) => {
+routerProgramacion.get("/:lenguaje/:nivel", (req, res) => {
     // console.log(req.params)
     const lenguaje = req.params.lenguaje
     const nivel = req.params.nivel
@@ -57,12 +65,12 @@ app.get("/api/cursos/programacion/:lenguaje/:nivel", (req, res) => {
 })
 
 // Matemáticas
-app.get("/api/cursos/matematicas", (req, res) => {
+routerMatematicas.get("/", (req, res) => {
     res.send(JSON.stringify(infoCursos.matematicas))
 })
 
 // Parámetros de ruta cursos de matemáticas
-app.get("/api/cursos/matematicas/:tema", (req, res) => {
+routerMatematicas.get("/:tema", (req, res) => {
     const tema = req.params.tema
     const resultados = infoCursos.matematicas.filter(curso => curso.tema === tema)
 
@@ -73,7 +81,7 @@ app.get("/api/cursos/matematicas/:tema", (req, res) => {
 })
 
 // Filtrando con dos parámetros.
-app.get("/api/cursos/matematicas/:tema/:nivel", (req, res) => {
+routerMatematicas.get("/:tema/:nivel", (req, res) => {
     // console.log(req.params)
     const tema = req.params.tema
     const nivel = req.params.nivel
