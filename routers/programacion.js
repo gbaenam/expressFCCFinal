@@ -41,3 +41,8 @@ routerProgramacion.get("/:lenguaje/:nivel", (req, res) => {
     res.send(JSON.stringify(resultados))
 })
 
+
+// Exportación del Router Programación.
+module.exports = {
+    routerProgramacion
+}
