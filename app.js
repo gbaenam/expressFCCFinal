@@ -10,9 +10,16 @@ const app = express()
 
 const { infoCursos } = require("./datos/cursos")
 
-// Routers
+/*********************************************************************/
+
+// ROUTERS
+
 // Router programación
-// app.use('/api/cursos/programacion', routerProgramacion)
+// Importando el Router de Programación.
+const { routerProgramacion } = require('./routers/programacion')
+
+// Montaje del Middleware de Enrutamiento de programación.
+app.use('/api/cursos/programacion', routerProgramacion)
 
 
 // Router matematicas.
@@ -22,7 +29,7 @@ const { routerMatematicas } = require('./routers/matematicas')
 // Montaje del Middleware de Enrutamiento de matemáticas.
 app.use('/api/cursos/matematicas', routerMatematicas)
 
-
+/*********************************************************************/
 
 // Routing con Express
 // Función de Express para definir una ruta que maneje solicitudes HTTP GET.

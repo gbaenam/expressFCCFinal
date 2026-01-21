@@ -1,7 +1,7 @@
 
 const express = require('express')
 
-const { programacion } = require('/../datos/cursos').infoCursos
+const { programacion } = require('../datos/cursos').infoCursos
 
 const routerProgramacion = express.Router()
 
@@ -46,3 +46,4 @@ routerProgramacion.get("/:lenguaje/:nivel", (req, res) => {
 module.exports = {
     routerProgramacion
 }
+
