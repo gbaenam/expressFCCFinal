@@ -3,7 +3,11 @@ const express = require('express')
 
 const { programacion } = require('../datos/cursos').infoCursos
 
+// Instancia del Router de programación
 const routerProgramacion = express.Router()
+
+// Middleware
+routerProgramacion.use(express.json())
 
 
 routerProgramacion.get("/", (req, res) => {
@@ -21,7 +25,7 @@ routerProgramacion.get("/:lenguaje", (req, res) => {
 
     // Parámetros query (Ordenado de menor a mayor)
     if (req.query.ordenar === 'vistas') {
-        return res.send(JSON.stringify(resultados.sort((a,b) => a.vistas - b.vistas)))
+        return res.send(JSON.stringify(resultados.sort((a, b) => a.vistas - b.vistas)))
     }
 
     res.send(JSON.stringify(resultados))
@@ -37,6 +41,13 @@ routerProgramacion.get("/:lenguaje/:nivel", (req, res) => {
         return res.status(404).send(`No encontraron cursos de ${lenguaje} de nivel ${nivel}`)
     }
     res.send(JSON.stringify(resultados))
+})
+
+// Manejo de solicitudes HTTP POST.
+routerProgramacion.post('/', (req, res) => {
+    let cursoNuevo = req.body
+    programacion.push(cursoNuevo)
+    res.send(JSON.stringify(programacion))
 })
 
 

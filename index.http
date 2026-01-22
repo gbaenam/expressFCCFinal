@@ -1,0 +1,17 @@
+
+POST http://localhost:3000/api/cursos/programacion HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 4,
+    "titulo": "Angular para Principiantes",
+    "lenguaje": "javascript",
+    "vistas": 15000,
+    "nivel": "basico"
+}
+
+
+
+
+
+
