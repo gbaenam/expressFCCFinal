@@ -51,15 +51,25 @@ routerProgramacion.post('/', (req, res) => {
 })
 
 
+// Manejo de solicitudes HTTP PUT.
+routerProgramacion.put('/:id', (req, res) => {
+    const cursoActualizado = req.body
+    const id = req.params.id
+
+    const indice = programacion.findIndex(curso => curso.id == id)
+
+    if (indice >= 0) {
+        programacion[indice] = cursoActualizado
+    }
+    res.send(JSON.stringify(programacion))
+
+})
+
+
 // Exportación del Router Programación.
 module.exports = {
     routerProgramacion
 }
-
-
-
-
-
 
 
 

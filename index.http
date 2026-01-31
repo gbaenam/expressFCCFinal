@@ -1,4 +1,6 @@
 
+# Solicitud POST
+
 POST http://localhost:3000/api/cursos/programacion HTTP/1.1
 Content-Type: application/json
 
@@ -9,6 +11,29 @@ Content-Type: application/json
     "vistas": 15000,
     "nivel": "basico"
 }
+
+
+
+### Solicitud PUT - Actualización de curso de Python
+
+PUT http://localhost:3000/api/cursos/programacion/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 2,
+    "titulo": "Python intermedio con proyectos",
+    "lenguaje": "python",
+    "vistas": "123996",
+    "nivel": "intermedio"
+}
+
+
+
+
+
+
+
+
 
 
 
