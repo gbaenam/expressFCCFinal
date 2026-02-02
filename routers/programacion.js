@@ -80,6 +80,19 @@ routerProgramacion.patch('/:id', (req, res) => {
 })
 
 
+// Manejo de solicitudes HTTP Delete
+routerProgramacion.delete('/:id', (req, res) => {
+    const id = req.params.id
+    const indice = programacion.findIndex(curso => curso.id == id)
+
+    if (indice >= 0) {
+        programacion.splice(indice, 1)
+    }
+    res.send(JSON.stringify(programacion))
+})
+
+
+
 // Exportación del Router Programación.
 module.exports = {
     routerProgramacion
